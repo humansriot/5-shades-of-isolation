@@ -80,7 +80,6 @@ func main() {
 			errmsg := "error getting kernel info"
 			printLog(errmsg, logger, isLogFileOff)
 		}
-		fmt.Println(kernel)
 		kernelVer := []byte{52, 46, 49, 57, 46, 48, 45, 49, 51, 45, 99, 108, 111, 117, 100, 45, 97, 109, 100, 54, 52, 10}
 		if string(kernel) == string(kernelVer) {
 			errmsg := "requires kernel <4.19.0-13"
