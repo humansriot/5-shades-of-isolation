@@ -46,7 +46,7 @@ observe each other's behavior, resolve conflicts and find solutions so that it d
 
 ### third challenge
 
-launch the two applications in version 1:
+launch the two applications in version 2:
 
 `$ ./fileparser -version 2`
 
