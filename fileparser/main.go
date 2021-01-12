@@ -15,7 +15,7 @@ func main() {
 	port := flag.String("p", "8100", "port to serve on")
 	directory := flag.String("d", ".", "the directory of static file to host")
 	isLogFileOff := flag.Bool("stdout", false, "log to stdout instead of log file")
-	version := flag.Int("version", 1, "version of the app")
+	version := flag.Int("version", 0, "version of the app")
 	flag.Parse()
 
 	f, err := os.OpenFile("fileparser.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
@@ -80,7 +80,7 @@ func main() {
 		}
 		kernelVer := []byte{50, 48, 46, 49, 46, 48, 10}
 		if string(kernel) != string(kernelVer) {
-			errmsg := "requires kernel 20.1.0"
+			errmsg := "requires kernel 4.19.0-13"
 			printLog(errmsg, logger, isLogFileOff)
 			os.Exit(1)
 		}

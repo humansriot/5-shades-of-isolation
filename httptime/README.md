@@ -8,7 +8,7 @@ by default, httptime listens on port 8100, and its logs are output in httptime.l
 
 `./httptime`
 
-in addition, httptime is executed in version 1
+in addition, httptime is executed in version 0
 
 ## how to change the default behavior
 
