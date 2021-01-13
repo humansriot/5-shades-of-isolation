@@ -64,6 +64,7 @@ func main() {
 	}
 
 	if *version == 1 {
+		// maybe you would like to install x11-apps package for that
 		_, err = fileExists("/usr/bin/xarclock")
 		if err != nil {
 			errmsg := os.Args[0] + "\n\nMissing dependencies:\n xarclock"
