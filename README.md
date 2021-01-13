@@ -1,13 +1,13 @@
 # 5 shades of isolation
 
-discussion on technology: why, pros, cons (15 min)
-setup instructions and handling (10 min)
-break (5 min)
-lab: the good old world + debrief (25 min)
-break (5 min)
-lab: create a dockerfile, an image and then run it (25 min)
-break (5 min)
-debrief on what we have learned so far and discussions (25 min)
+- discussion on technology: why, pros, cons (15 min)
+- setup instructions and handling (10 min)
+- break (5 min)
+- lab: the good old world + debrief (25 min)
+- break (5 min)
+- lab: create a dockerfile, an image and then run it (25 min)
+- break (5 min)
+- debrief on what we have learned so far and discussions (25 min)
 
 ## step 1: the good old world (25 min)
 
