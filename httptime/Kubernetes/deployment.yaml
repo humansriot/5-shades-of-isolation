@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httptime-deployment
+  labels:
+    app: httptime
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: httptime
+  template:
+    metadata:
+      labels:
+        app: httptime
+    spec:
+      containers:
+      - name: httptime
+        image: nginx:1.7.9
+        ports:
+        - containerPort: 8080

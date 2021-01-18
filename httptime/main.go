@@ -12,6 +12,27 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
+func fileExists(path string) (bool, error) {
+	if _, err := os.Stat(path); os.IsNotExist(err) {
+		return false, err
+	}
+	return true, nil
+}
+
+func printLog(errMsg string, logger *log.Logger, isLogFileOff *bool) {
+	if *isLogFileOff {
+		fmt.Println(errMsg)
+	} else {
+		logger.Println(errMsg)
+	}
+}
+
+type config struct {
+	Port      string `yaml:"port,omitempty"`
+	Directory string `yaml:"directory,omitempty"`
+	Stdout    bool   `yaml:"stdout,omitempty"`
+}
+
 func main() {
 	port := flag.String("p", "8100", "port to serve on")
 	directory := flag.String("d", ".", "the directory of static file to host")
@@ -97,25 +118,4 @@ func main() {
 		log.Fatal(err)
 	}
 
-}
-
-func fileExists(path string) (bool, error) {
-	if _, err := os.Stat(path); os.IsNotExist(err) {
-		return false, err
-	}
-	return true, nil
-}
-
-func printLog(errMsg string, logger *log.Logger, isLogFileOff *bool) {
-	if *isLogFileOff {
-		fmt.Println(errMsg)
-	} else {
-		logger.Println(errMsg)
-	}
-}
-
-type config struct {
-	Port      string `yaml:"port,omitempty"`
-	Directory string `yaml:"directory,omitempty"`
-	Stdout    bool   `yaml:"stdout,omitempty"`
 }

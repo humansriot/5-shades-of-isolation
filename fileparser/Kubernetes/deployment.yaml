@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fileparser-deployment
+  labels:
+    app: fileparser
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fileparser
+  template:
+    metadata:
+      labels:
+        app: fileparser
+    spec:
+      containers:
+      - name: fileparser
+        image: nginx:1.7.9
+        ports:
+        - containerPort: 8080
