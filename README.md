@@ -4,11 +4,11 @@
 
 - discussion on technology: why, pros, cons (15 min)
 - setup instructions and handling (10 min)
-- break (5 min)
+- interlude (5 min)
 - lab: [the good old world](## step 1: the good old world) (25 min)
-- break (5 min)
+- interlude (5 min)
 - lab: [create a dockerfile, an image and then run it](## step 2: the world of containers) (25 min)
-- break (5 min)
+- interlude (5 min)
 - debrief on what we have learned so far and discussions (25 min)
 
 ## step 1: the good old world
@@ -90,3 +90,46 @@ second try by building the binary [How to build and install go programs](https:/
 third try by building the binary and puting it in a new image [multistage build](https://docs.docker.com/develop/develop-images/multistage-build/)
 
 then try with differents args, and watch it run [run containers](https://docs.docker.com/get-started/nodejs/run-containers/)
+
+## part 2
+
+- run a container with arguments: send logs to stdout (15 min)
+- 10 minutes debriefing (10 min)
+- interlude (5 min)
+- run a container in Kubernetes (25 min)
+- interlude (5 min)
+- forget the arguments, and use a configuration file instead (20 min)
+- 10 minutes debriefing (10 min)
+- interlude (5 min)
+- versionning our deployment with helm (20 min)
+- 10 minutes debriefing (10 min)
+
+## run a container with arguments: send logs to stdout
+
+Maybe you noticed that `httptime` and` fileparser` had options on the command line:
+
+```
+$ ./httptime -h
+Usage of ./httptime:
+  -d string
+    	the directory of static file to host (default ".")
+  -p string
+    	port to serve on (default "8100")
+  -stdout
+    	log to stdout instead of log file
+  -version int
+    	version of the app
+```
+
+You will find a ready-to-use Dockerfile in `5-shades-of-isolation/fileparser/` and `5-shades-of-isolationfileparser/httptime/`
+
+Build the image, then run the container with the option `-stdout`
+
+- How does the container behave when you try to pass it an argument?
+- what modification could you make to Dockerfile to change this behavior? (help: https://phoenixnap.com/kb/docker-cmd-vs-entrypoint)
+
+## run a container in Kubernetes
+
+## forget the arguments, and use a configuration file instead
+
+## versionning our deployment with helm
