@@ -1,15 +1,17 @@
 # 5 shades of isolation
 
+## part 1
+
 - discussion on technology: why, pros, cons (15 min)
 - setup instructions and handling (10 min)
 - break (5 min)
-- lab: the good old world + debrief (25 min)
+- lab: [the good old world](## step 1: the good old world) (25 min)
 - break (5 min)
-- lab: create a dockerfile, an image and then run it (25 min)
+- lab: [create a dockerfile, an image and then run it](## step 2: the world of containers) (25 min)
 - break (5 min)
 - debrief on what we have learned so far and discussions (25 min)
 
-## step 1: the good old world (25 min)
+## step 1: the good old world
 
 the operational world has never been without complications. Maybe you already know them, maybe not. The following exercise points out the issues that can be encountered in the deployment of an application, and to name a few:
 
@@ -63,7 +65,7 @@ launch the two applications in version 2:
 
 observe each other's behavior, resolve conflicts and find solutions so that it does not happen again
 
-## step 2: the world of containers (25 min)
+## step 2: the world of containers
 
 ### goals of containers
 
