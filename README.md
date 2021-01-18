@@ -83,10 +83,7 @@ FROM instruction in Dockerfile
 
 #### first challenge: create a dockerfile
 
-first try by copying the binary [Dockerfile best practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
-
-second try by building the binary [How to build and install go programs](https://www.digitalocean.com/community/tutorials/how-to-build-and-install-go-programs)
-
-third try by building the binary and puting it in a new image [multistage build](https://docs.docker.com/develop/develop-images/multistage-build/)
-
-then try with differents args, and watch it run [run containers](https://docs.docker.com/get-started/nodejs/run-containers/)
+1. first try by copying the binary [Dockerfile best practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
+1. second try by building the binary [How to build and install go programs](https://www.digitalocean.com/community/tutorials/how-to-build-and-install-go-programs)
+1. third try by building the binary and puting it in a new image [multistage build](https://docs.docker.com/develop/develop-images/multistage-build/)
+1. then try with differents args, and watch it run [run containers](https://docs.docker.com/get-started/nodejs/run-containers/)
