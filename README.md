@@ -148,4 +148,15 @@ comme vous le voyez, ces fichiers sont "incomplets", car il n'y a pas l'argement
 
 ## forget the arguments, and use a configuration file instead
 
+dans cet excercice, nous allons nous concentrer sur `httptime`
+
+comme vous pouvez le remarquer dans le dossier `Kubernetes`, quelques ressources ont été ajoutée : toutes ces ressources sont assez classiques pour exécuter une application dans Kubernetes
+
+il y a cependant deux choses qui ne vont pas avec ce déploiement:
+
+1. les ops se plaignent de ne pas avoir accès aux logs de l'application au travers de la commande `kubectl logs $pod-name` (je sais que vous ne connaissez pas le nom du pod, mais je vous rassure, moi non plus ! mais voici un aide mémoire [https://kubernetes.io/fr/docs/reference/kubectl/cheatsheet/](https://kubernetes.io/fr/docs/reference/kubectl/cheatsheet/))
+1. les clients se plaignent de ne pas accéder à l'application... sauriez-vous trouver pourquoi ?
+
+il n'y a pas une méthode pour résoudre ce problème, laissez libre cours à votre imagination, nous partagerons les solutions
+
 ## versionning our deployment with helm

@@ -9,8 +9,5 @@ data:
     # port to serve on
     port: 8100
 
-    # the directory of static file to host
-    directory: /var/log
-
     # log to stdout instead of log file
-    stdout: true
+    stdout: false
