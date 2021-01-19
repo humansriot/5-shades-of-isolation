@@ -12,32 +12,12 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
-func fileExists(path string) (bool, error) {
-	if _, err := os.Stat(path); os.IsNotExist(err) {
-		return false, err
-	}
-	return true, nil
-}
-
-func printLog(errMsg string, logger *log.Logger, isLogFileOff *bool) {
-	if *isLogFileOff {
-		fmt.Println(errMsg)
-	} else {
-		logger.Println(errMsg)
-	}
-}
-
-type config struct {
-	Port      string `yaml:"port,omitempty"`
-	Directory string `yaml:"directory,omitempty"`
-	Stdout    bool   `yaml:"stdout,omitempty"`
-}
-
 func main() {
 	port := flag.String("p", "8100", "port to serve on")
 	directory := flag.String("d", ".", "the directory of static file to host")
 	isLogFileOff := flag.Bool("stdout", false, "log to stdout instead of log file")
 	version := flag.Int("version", 0, "version of the app")
+	cfgFile := flag.String("c", "/root/etc/config.yaml", "the full path to the config file")
 	flag.Parse()
 
 	f, err := os.OpenFile("httptime.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
@@ -50,14 +30,14 @@ func main() {
 
 	cfg := &config{}
 
-	isConfig, err := fileExists("config.yml")
+	isConfig, err := fileExists(*cfgFile)
 	if err != nil {
-		errmsg := os.Args[0] + "no config file provided"
+		errmsg := os.Args[0] + " " + *cfgFile + " no config file provided"
 		printLog(errmsg, logger, isLogFileOff)
 	}
-	configFile, err := os.Open("config.yml")
+	configFile, err := os.Open(*cfgFile)
 	if err != nil {
-		errmsg := os.Args[0] + "error opening config file"
+		errmsg := os.Args[0] + " error opening config file"
 		printLog(errmsg, logger, isLogFileOff)
 	}
 	defer configFile.Close()
@@ -118,4 +98,25 @@ func main() {
 		log.Fatal(err)
 	}
 
+}
+
+func fileExists(path string) (bool, error) {
+	if _, err := os.Stat(path); os.IsNotExist(err) {
+		return false, err
+	}
+	return true, nil
+}
+
+func printLog(errMsg string, logger *log.Logger, isLogFileOff *bool) {
+	if *isLogFileOff {
+		fmt.Println(errMsg)
+	} else {
+		logger.Println(errMsg)
+	}
+}
+
+type config struct {
+	Port      string `yaml:"port,omitempty"`
+	Directory string `yaml:"directory,omitempty"`
+	Stdout    bool   `yaml:"stdout,omitempty"`
 }
