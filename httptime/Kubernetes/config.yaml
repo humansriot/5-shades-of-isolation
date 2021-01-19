@@ -3,6 +3,14 @@ kind: ConfigMap
 metadata:
   name: httptime-config
 data:
-  # property-like keys; each key maps to a simple value
-  stdout: "true"
-  port: "8100"
+  config.yml: |
+    # config.yaml
+
+    # port to serve on
+    port: 8100
+
+    # the directory of static file to host
+    directory: /var/log
+
+    # log to stdout instead of log file
+    stdout: true
