@@ -136,29 +136,29 @@ is that even possible? what are the options?
 
 ## run a container in Kubernetes
 
-Docker n'a pas été créé pour adresser des problèmes de disponibilité, pour cela nous avons besoin d'un orchestrateur. depuis 2017, Kubernetes est le standard en terme d'orchestration
+Docker was not created to address availability issues, for that we need an orchestrator. since 2017, Kubernetes is the standard in terms of orchestration
 
 ### the challenge
 
-êtes-vous prêt à déployer votre première application dans Kubernetes ?
+Are you ready to deploy your first app in Kubernetes?
 
-deux fichiers de déploiement sont à votre disposition, l'un pour httptime `httptime/Kubernetes/deployment.yaml` et l'autre pour fileparser `fileparser/Kubernetes/deployment.yaml`. et si vous essayez de déployer vous même ces applications ? Vous trouverez un peu d'aide [ici](https://kubernetes.io/docs/concepts/cluster-administration/manage-deployment/)
+two deployment files are available to you, one for httptime `httptime/Kubernetes/deployment.yaml` and the other for fileparser `fileparser/Kubernetes/deployment.yaml`. what if you try to deploy these apps yourself? You will find some help [here](https://kubernetes.io/docs/concepts/cluster-administration/manage-deployment/)
 
-comme vous le voyez, ces fichiers sont "incomplets", car il n'y a pas l'argement `-sdtout` qui est passé aux conteneurs. sauriez-vous l'ajouter en vous aidant de cette documentation : [https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/](https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/)
+as you can see, these files are "incomplete", because there is no argement `-sdtout` that went to containers. could you add it with the help of this documentation: [https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/](https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/)
 
 ## forget the arguments, and use a configuration file instead
 
-dans cet excercice, nous allons nous concentrer sur `httptime`
+in this exercise we will focus on `httptime`
 
-comme vous pouvez le remarquer dans le dossier `Kubernetes`, quelques ressources ont été ajoutée : toutes ces ressources sont assez classiques pour exécuter une application dans Kubernetes
+as you can notice in the `Kubernetes` folder, a few resources have been added: all these resources are fairly standard to run an application in Kubernetes
 
 ### the challenge
 
-il y a cependant deux choses qui ne vont pas avec ce déploiement:
+There are two things wrong with this deployment, however:
 
-1. les ops se plaignent de ne pas avoir accès aux logs de l'application au travers de la commande `kubectl logs $pod-name` (je sais que vous ne connaissez pas le nom du pod, mais je vous rassure, moi non plus ! mais voici un aide mémoire [https://kubernetes.io/fr/docs/reference/kubectl/cheatsheet/](https://kubernetes.io/fr/docs/reference/kubectl/cheatsheet/))
-1. les clients se plaignent de ne pas accéder à l'application... sauriez-vous trouver pourquoi ?
+1. the ops are complaining about not having access to the logs of the application through the command `kubectl logs $pod-name` (I know that you do not know the name of the pod, but I reassure you, me neither! but here is a memory aid [https://kubernetes.io/fr/docs/reference/kubectl/cheatsheet/](https://kubernetes.io/fr/docs/reference/kubectl/cheatsheet/))
+1. customers are complaining that they cannot access the app ... can you find out why?
 
-il n'y a pas une méthode pour résoudre ce problème, laissez libre cours à votre imagination, nous partagerons les solutions
+there is no one method to solve this problem, let your imagination run wild, we will share the solutions
 
 ## versionning our deployment with helm
