@@ -2,9 +2,9 @@ name: Dockerbuild
 
 on:
   push:
-    branches: [ stable ]
+    branches: [ unstable ]
   pull_request:
-    branches: [ stable ]
+    branches: [ unstable ]
 
 jobs:
   build-httptime:
@@ -30,7 +30,7 @@ jobs:
           context: ./httptime
           file: ./httptime/Dockerfile
           push: true
-          tags: humansriot/httptime:latest
+          tags: humansriot/httptime:1.0.0
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
@@ -58,7 +58,7 @@ jobs:
           context: ./fileparser
           file: ./fileparser/Dockerfile
           push: true
-          tags: humansriot/fileparser:latest
+          tags: humansriot/fileparser:1.0.0
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
