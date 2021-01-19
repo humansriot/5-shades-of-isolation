@@ -101,7 +101,7 @@ then try with differents args, and watch it run [run containers](https://docs.do
 - forget the arguments, and use a configuration file instead (20 min)
 - 10 minutes debriefing (10 min)
 - interlude (5 min)
-- versionning our deployment with helm (20 min)
+- versioning our deployment with helm (20 min)
 - 10 minutes debriefing (10 min)
 
 ## run a container with arguments: send logs to stdout
@@ -136,15 +136,15 @@ is that even possible? what are the options?
 
 ## run a container in Kubernetes
 
-Docker n'a pas été créé pour adresser des problèmes de disponibilité, pour cela nous avons besoin d'un orchestrateur. depuis 2017, Kubernetes est le standard en terme d'orchestration
+Docker was not created to address availability issues, for that we need an orchestrator. since 2017, Kubernetes is the standard in terms of orchestration
 
 ### the challenge
 
-êtes-vous prêt à déployer votre première application dans Kubernetes ?
+Are you ready to deploy your first app in Kubernetes?
 
-deux fichiers de déploiement sont à votre disposition, l'un pour httptime `httptime/Kubernetes/deployment.yaml` et l'autre pour fileparser `fileparser/Kubernetes/deployment.yaml`. et si vous essayez de déployer vous même ces applications ? Vous trouverez un peu d'aide [ici](https://kubernetes.io/docs/concepts/cluster-administration/manage-deployment/)
+two deployment files are available to you, one for httptime `httptime/Kubernetes/deployment.yaml` and the other for fileparser `fileparser/Kubernetes/deployment.yaml`. what if you try to deploy these apps yourself? You will find some help [here](https://kubernetes.io/docs/concepts/cluster-administration/manage-deployment/)
 
-comme vous le voyez, ces fichiers sont "incomplets", car il n'y a pas l'argement `-sdtout` qui est passé aux conteneurs. sauriez-vous l'ajouter en vous aidant de cette documentation : [https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/](https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/)
+as you can see, these files are "incomplete", because there is no argement `-sdtout` that went to containers. could you add it with the help of this documentation: [https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/](https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/)
 
 ## forget the arguments, and use a configuration file instead
 
