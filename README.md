@@ -162,3 +162,9 @@ There are two things wrong with this deployment, however:
 there is no one method to solve this problem, let your imagination run wild, we will share the solutions
 
 ## versionning our deployment with helm
+
+comme vous l'avez vu, modifier des fichiers yaml n'est pas une partie de plaisir...
+
+est-ce que ce qu'il y a dans vos fichiers reflète ce qu'il y a dans le clutser ? comment sont-ils versionés ? et encore une fois, il n'y a pas une solution à ce problème, mais plusieurs solutions : Helm est l'une d'entre elles
+
+continuons à travailler avec `httptime` : dans le répertoire `Kubernetes`, vous avez un *chart*. Un *chart* est une somme de fichiers compressés pour en faire une version, selon la façon de faire de Helm

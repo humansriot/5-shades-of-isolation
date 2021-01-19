@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "httptime-chart.fullname" . }}
+  labels:
+    {{- include "httptime-chart.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "httptime-chart.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "httptime-chart.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+        args: ["-c","/root/etc/config.yml"]
+        ports:
+        - containerPort: 8100
+        volumeMounts:
+        - name: config
+          mountPath: "/root/etc"
+          readOnly: true
+      volumes:
+        - name: config
+          configMap:
+            name: {{ include "httptime-chart.fullname" . }}

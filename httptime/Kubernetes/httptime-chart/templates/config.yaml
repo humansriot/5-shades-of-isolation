@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "httptime-chart.fullname" . }}
+data:
+  config.yml: |
+    # config.yaml
+
+    # port to serve on
+    port: {{ .Values.config.port }}
+
+    # log to stdout instead of log file
+    stdout: {{ .Values.config.stdout }}
