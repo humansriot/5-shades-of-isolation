@@ -1,10 +1,10 @@
-name: Dockerbuild-unstable
+name: Dockerbuild-testing
 
 on:
   push:
-    branches: [ unstable ]
+    branches: [ testing ]
   pull_request:
-    branches: [ unstable ]
+    branches: [ testing ]
 
 jobs:
   build-httptime:
@@ -30,7 +30,7 @@ jobs:
           context: ./httptime
           file: ./httptime/Dockerfile
           push: true
-          tags: humansriot/httptime:1.0.0
+          tags: humansriot/httptime:1.1.0
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
@@ -58,7 +58,7 @@ jobs:
           context: ./fileparser
           file: ./fileparser/Dockerfile
           push: true
-          tags: humansriot/fileparser:1.0.0
+          tags: humansriot/fileparser:1.1.0
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
