@@ -20,10 +20,10 @@ spec:
         ports:
         - containerPort: 8080
         volumeMounts:
-        - name: config
-          mountPath: "/config"
+        - name: config.yml
+          mountPath: "/root/etc"
           readOnly: true
       volumes:
-        - name: config
+        - name: config.yml
           configMap:
             name: httptime-config
