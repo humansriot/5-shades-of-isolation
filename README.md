@@ -123,12 +123,28 @@ Usage of ./httptime:
 
 You will find a ready-to-use Dockerfile in `5-shades-of-isolation/fileparser/` and `5-shades-of-isolationfileparser/httptime/`
 
+### the challenge
+
 Build the image, then run the container with the option `-stdout`
 
 - How does the container behave when you try to pass it an argument?
 - what modification could you make to Dockerfile to change this behavior? (help: https://phoenixnap.com/kb/docker-cmd-vs-entrypoint)
 
+Stop for a moment to think about how to replace a container launched with the wrong option with another with the right option *without service interruption*.
+
+is that even possible? what are the options?
+
 ## run a container in Kubernetes
+
+Docker n'a pas été créé pour adresser des problèmes de disponibilité, pour cela nous avons besoin d'un orchestrateur. depuis 2017, Kubernetes est le standard en terme d'orchestration
+
+### the challenge
+
+êtes-vous prêt à déployer votre première application dans Kubernetes ?
+
+deux fichiers de déploiement sont à votre disposition, l'un pour httptime `httptime/Kubernetes/deployment.yaml` et l'autre pour fileparser `fileparser/Kubernetes/deployment.yaml`. et si vous essayez de déployer vous même ces applications ? Vous trouverez un peu d'aide [ici](https://kubernetes.io/docs/concepts/cluster-administration/manage-deployment/)
+
+comme vous le voyez, ces fichiers sont "incomplets", car il n'y a pas l'argement `-sdtout` qui est passé aux conteneurs. sauriez-vous l'ajouter en vous aidant de cette documentation : [https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/](https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/)
 
 ## forget the arguments, and use a configuration file instead
 
