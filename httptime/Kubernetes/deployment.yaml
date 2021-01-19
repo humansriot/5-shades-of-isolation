@@ -17,5 +17,6 @@ spec:
       containers:
       - name: httptime
         image: humansriot/httptime:latest
+        args: ["-stdout"]
         ports:
         - containerPort: 8080

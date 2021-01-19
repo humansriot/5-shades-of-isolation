@@ -17,5 +17,6 @@ spec:
       containers:
       - name: fileparser
         image: humansriot/fileparser:latest
+        args: ["-stdout"]
         ports:
         - containerPort: 8080
