@@ -101,7 +101,7 @@ then try with differents args, and watch it run [run containers](https://docs.do
 - forget the arguments, and use a configuration file instead (20 min)
 - 10 minutes debriefing (10 min)
 - interlude (5 min)
-- versionning our deployment with helm (20 min)
+- versioning our deployment with helm (20 min)
 - 10 minutes debriefing (10 min)
 
 ## run a container with arguments: send logs to stdout
