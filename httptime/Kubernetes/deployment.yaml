@@ -17,6 +17,13 @@ spec:
       containers:
       - name: httptime
         image: humansriot/httptime:latest
-        args: ["-stdout"]
         ports:
-        - containerPort: 8100
+        - containerPort: 8080
+        volumeMounts:
+        - name: config
+          mountPath: "/config"
+          readonly: true
+      volumes:
+        - name: config
+          configMap:
+            name: httptime-config
