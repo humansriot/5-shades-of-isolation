@@ -163,8 +163,42 @@ there is no one method to solve this problem, let your imagination run wild, we 
 
 ## versionning our deployment with helm
 
-comme vous l'avez vu, modifier des fichiers yaml n'est pas une partie de plaisir...
+as you have seen, modifying yaml files is not a piece of cake ...
 
-est-ce que ce qu'il y a dans vos fichiers reflète ce qu'il y a dans le clutser ? comment sont-ils versionés ? et encore une fois, il n'y a pas une solution à ce problème, mais plusieurs solutions : Helm est l'une d'entre elles
+does what is in your files reflect what is in the clutser? how are they versioned? and again, there is not a solution to this problem, but several solutions: Helm is one of them
 
-continuons à travailler avec `httptime` : dans le répertoire `Kubernetes`, vous avez un *chart*. Un *chart* est une somme de fichiers compressés pour en faire une version, selon la façon de faire de Helm
+let's continue working with `httptime`: in the` Kubernetes` directory, you have a *chart*
+
+a chart is mainly made up of 3 components:
+
+- `Chart.yaml` which allows you to define the chart version and this application
+- `templates` is a directory containing all the files needed to deploy the application, but in the form of a Jinja-2 template
+- `values.yaml` is the file which contains all the parameters necessary for the deployment
+
+what is the purpose of creating a chart?
+
+1. pack an application and the deployment configuration (which Docker cannot do for example)
+1. only to interact with a small number of parameters, those contained in `Chart.yaml` and `values.yaml`
+1. to know at all times the status of what is deployed in the Kubernetes cluster vs what is in the files
+
+### the challenge
+
+let's deploy `httptime` with Helm!
+
+`$ helm install --generate-name ./httptime-chart`
+
+oops! we made some mistakes:
+
+1. we have configured the container to expose port 8080 instead of port 8100
+1. we did not send the logs to `stdout`
+1. we used image 1.0.0 instead of image 1.1.0
+
+will you be able to correct these problems and deploy a new version of the application?
+
+#### astuce
+
+`$ helm list` will give you the name of your deployment
+
+once you identify it and fix the issues, update this version with the command
+
+`$ helm upgrade $deployment-name ./httptime-chart`
