@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: fileparser
-        image: nginx:1.7.9
+        image: humansriot/fileparser:latest
         ports:
         - containerPort: 8080

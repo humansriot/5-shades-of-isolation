@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: httptime
-        image: nginx:1.7.9
+        image: humansriot/httptime:latest
         ports:
         - containerPort: 8080
