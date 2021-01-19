@@ -17,6 +17,7 @@ func main() {
 	directory := flag.String("d", ".", "the directory of static file to host")
 	isLogFileOff := flag.Bool("stdout", false, "log to stdout instead of log file")
 	version := flag.Int("version", 0, "version of the app")
+	cfgFile := flag.String("c", "/root/etc/config.yaml", "the full path to the config file")
 	flag.Parse()
 
 	f, err := os.OpenFile("httptime.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
@@ -29,14 +30,14 @@ func main() {
 
 	cfg := &config{}
 
-	isConfig, err := fileExists("config.yml")
+	isConfig, err := fileExists(*cfgFile)
 	if err != nil {
-		errmsg := os.Args[0] + "no config file provided"
+		errmsg := os.Args[0] + " " + *cfgFile + " no config file provided"
 		printLog(errmsg, logger, isLogFileOff)
 	}
-	configFile, err := os.Open("config.yml")
+	configFile, err := os.Open(*cfgFile)
 	if err != nil {
-		errmsg := os.Args[0] + "error opening config file"
+		errmsg := os.Args[0] + " error opening config file"
 		printLog(errmsg, logger, isLogFileOff)
 	}
 	defer configFile.Close()
