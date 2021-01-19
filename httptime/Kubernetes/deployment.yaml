@@ -17,6 +17,7 @@ spec:
       containers:
       - name: httptime
         image: humansriot/httptime:latest
+        args: ["-c","/root/etc/config.yml"]
         ports:
         - containerPort: 8080
         volumeMounts:
